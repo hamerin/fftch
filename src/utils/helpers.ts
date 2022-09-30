@@ -14,3 +14,16 @@ export const min = (...args: number[]) => {
 export const max = (...args: number[]) => {
   return args.reduce((m, x) => m > x ? m : x, args[0]);
 };
+
+export const iOS = () => {
+  return [
+    "iPad Simulator",
+    "iPhone Simulator",
+    "iPod Simulator",
+    "iPad",
+    "iPhone",
+    "iPod"
+  ].includes(navigator.platform)
+  // iPad on iOS 13 detection
+  || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
+};

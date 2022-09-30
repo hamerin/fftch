@@ -9,7 +9,7 @@ import { RootState } from "./reducers";
 import { resetColors, resetConfig, setFrame, setGradient, setHighlightColor, setMarkerColor, setMarkerVariant, setWatermarkColor } from "./reducers/config";
 import { resetFreeCompany, setAccessTimes, setDescription, setFavContents, setFreeCompanyAbbr, setFreeCompanyName, setGrandCompany, setLevel, setMainJob, setName, setRace, setServer, setSpecialistJob, setStatus } from "./reducers/info";
 import { allAccessTimes, allCasterJobs, allContents, allCraftingJobs, allGatheringJobs, allGrandCompanies, allHealerJobs, allMeleeJobs, allRaceStrings, allRangedJobs, allStatuses, allTankJobs } from "./utils/constants";
-import { intToRGB, min, RGBToint } from "./utils/helpers";
+import { intToRGB, iOS, min, RGBToint } from "./utils/helpers";
 
 const App: React.FC = () => {
   const [app, setApp] = useState<Application | null>(null);
@@ -301,6 +301,19 @@ const App: React.FC = () => {
 
         <Divider />
 
+        <Alert status='warning' fontSize={componentSize} px={{ base: 3, md: 4 }} py={{ base: 2, md: 3 }}>
+          <AlertIcon boxSize={{ base: "1.3125rem", md: "1.5rem" }} />
+          주직업/전문장인 표시 방식을 {"'잡 아이콘 테두리'"}로 설정할 경우, 일부 직업에 대해 해당 요소가 다른 요소와 겹칠 수 있습니다.
+        </Alert>
+        <Alert status='info' fontSize={componentSize} px={{ base: 3, md: 4 }} py={{ base: 2, md: 3 }}>
+          <AlertIcon boxSize={{ base: "1.3125rem", md: "1.5rem" }} />
+          시간대/컨텐츠 강조색은 곱하기 모드로 혼합되므로, 설정한 색이 그대로 나타나지 않습니다.
+        </Alert>
+        <Alert status='info' fontSize={componentSize} px={{ base: 3, md: 4 }} py={{ base: 2, md: 3 }}>
+          <AlertIcon boxSize={{ base: "1.3125rem", md: "1.5rem" }} />
+          워터마크 색을 배경과 충분히 대비되게 설정하는 것을 권장합니다.
+        </Alert>
+
         <Flex gap={spacing ? spacing * 2 : undefined}>
           <Button
             size={componentSize}
@@ -321,19 +334,6 @@ const App: React.FC = () => {
             색상 초기화
           </Button>
         </Flex>
-
-        <Alert status='warning' fontSize={componentSize} px={{ base: 3, md: 4 }} py={{ base: 2, md: 3 }}>
-          <AlertIcon boxSize={{ base: "1.3125rem", md: "1.5rem" }} />
-          주직업/전문장인 표시 방식을 {"'잡 아이콘 테두리'"}로 설정할 경우, 일부 직업에 대해 해당 요소가 다른 요소와 겹칠 수 있습니다.
-        </Alert>
-        <Alert status='info' fontSize={componentSize} px={{ base: 3, md: 4 }} py={{ base: 2, md: 3 }}>
-          <AlertIcon boxSize={{ base: "1.3125rem", md: "1.5rem" }} />
-          시간대/컨텐츠 강조색은 곱하기 모드로 혼합되므로, 설정한 색이 그대로 나타나지 않습니다.
-        </Alert>
-        <Alert status='info' fontSize={componentSize} px={{ base: 3, md: 4 }} py={{ base: 2, md: 3 }}>
-          <AlertIcon boxSize={{ base: "1.3125rem", md: "1.5rem" }} />
-          워터마크 색을 배경과 충분히 대비되게 설정하는 것을 권장합니다.
-        </Alert>
 
         <FormControl size={componentSize}>
           <FormLabel fontSize={componentSize}>
@@ -463,6 +463,13 @@ const App: React.FC = () => {
           <Alert status='warning' fontSize={componentSize} px={{ base: 3, md: 4 }} py={{ base: 2, md: 3 }}>
             <AlertIcon boxSize={{ base: "1.3125rem", md: "1.5rem" }} />
             만약 미리보기가 작동하지 않을 경우 애드블록을 끄고 다시 시도해 주시기 바랍니다.
+          </Alert>
+        }
+        {
+          iOS() && image &&
+          <Alert status='warning' fontSize={componentSize} px={{ base: 3, md: 4 }} py={{ base: 2, md: 3 }}>
+            <AlertIcon boxSize={{ base: "1.3125rem", md: "1.5rem" }} />
+            사파리가 아닌 iOS 브라우저에서 다운로드가 작동하지 않을 수 있습니다. 이 경우 미리보기 사진을 길게 눌러 사진 앱에 저장해 주시기 바랍니다.
           </Alert>
         }
         {image && <CImage src={image} />}
