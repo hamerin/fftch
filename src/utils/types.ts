@@ -2,7 +2,7 @@ export type GrandCompany = "흑와단" | "쌍사당" | "불멸대";
 
 export type FreeCompany = { name: string, abbr: string }
 
-export type Race = ({ race: "휴런", subrace: "중원 부족" | "고원 부족" } | { race: "미코테", subrace: "태양의 추종자" | "달의 수호자" } | { race: "라라펠", subrace: "평원 부족" | "사막 부족" } | { race: "엘레젠", subrace: "숲 부족" | "황혼 부족" } | { race: "루가딘", subrace: "바다늑대" | "불꽃지킴이" } | { race: "비에라", subrace: "라바 비에라" | "비나 비에라" } | { race: "로스갈", subrace: "맴도는 별" | "떠도는 별" }) & { gender: "여" | "남" };
+export type Race = ({ race: "휴런", subrace: "중원 부족" | "고원 부족" } | { race: "미코테", subrace: "태양의 추종자" | "달의 수호자" } | { race: "라라펠", subrace: "평원 부족" | "사막 부족" } | { race: "엘레젠", subrace: "숲 부족" | "황혼 부족" } | { race: "루가딘", subrace: "바다늑대" | "불꽃지킴이" } | { race: "아우라", subrace: "렌" | "젤라" } | { race: "비에라", subrace: "라바 비에라" | "비나 비에라" } | { race: "로스갈", subrace: "맴도는 별" | "떠도는 별" }) & { gender: "여" | "남" };
 
 export type Status = "멘토" | "전투 멘토" | "제작 채집 멘토" | "PVP 멘토" | "새싹" | "복귀자";
 
