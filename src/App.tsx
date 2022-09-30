@@ -477,7 +477,7 @@ const App: React.FC = () => {
           iOS() && image &&
           <Alert status='warning' fontSize={componentSize} px={{ base: 3, md: 4 }} py={{ base: 2, md: 3 }}>
             <AlertIcon boxSize={{ base: "1.3125rem", md: "1.5rem" }} />
-            사파리가 아닌 iOS 브라우저에서 다운로드가 작동하지 않을 수 있습니다. 이 경우 미리보기 사진을 길게 눌러 사진 앱에 저장해 주시기 바랍니다.
+            iOS에서 다운로드가 작동하지 않을 수 있습니다. 이 경우 미리보기 사진을 길게 눌러 사진 앱에 저장해 주시기 바랍니다.
           </Alert>
         }
         {image && <CImage src={image} />}
