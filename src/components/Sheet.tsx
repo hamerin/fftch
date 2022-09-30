@@ -126,14 +126,16 @@ export const Sheet: React.FC<Props> = (props: Props) => {
         <Text
           text={info.name}
           style={titleStyle}
-          x={113 * scale} y={(-14 + 173.75) * scale}
+          anchor={[0, 1]}
+          x={113 * scale} y={(-14 + 81 + 173.75) * scale}
           zIndex={3}
         />
       }
       <Text
         text={`@ ${info.server}`}
         style={serverStyle}
-        x={(289 - 167.15) * scale + titleWidth} y={(-5 + 198.75) * scale}
+        anchor={[0, 1]}
+        x={(289 - 167.15) * scale + titleWidth} y={(-5 + 40 + 198.75) * scale}
         zIndex={3}
       />
       {
