@@ -453,6 +453,13 @@ const App: React.FC = () => {
 
         <Divider />
 
+        {
+          image &&
+          <Alert status='warning' fontSize={componentSize} px={{ base: 3, md: 4 }} py={{ base: 2, md: 3 }}>
+            <AlertIcon boxSize={{ base: "1.3125rem", md: "1.5rem" }} />
+            만약 미리보기가 작동하지 않을 경우 애드블록을 끄고 다시 시도해 주시기 바랍니다.
+          </Alert>
+        }
         {image && <CImage src={image} />}
 
         <Flex gap={spacing}>
