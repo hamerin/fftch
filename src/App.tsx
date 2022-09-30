@@ -95,6 +95,7 @@ const App: React.FC = () => {
             <Input
               size={componentSize}
               type='text'
+              placeholder='닉네임'
               value={info.name}
               onChange={e => dispatch(setName(e.target.value))}
             />
@@ -104,6 +105,7 @@ const App: React.FC = () => {
             <Input
               size={componentSize}
               type='text'
+              placeholder='서버'
               value={info.server}
               onChange={e => dispatch(setServer(e.target.value))}
             />
@@ -144,6 +146,7 @@ const App: React.FC = () => {
               <Input
                 size={componentSize}
                 type='text'
+                placeholder='이름'
                 value={info.freecompany?.name ?? ""}
                 onChange={e => dispatch(setFreeCompanyName(e.target.value))}
               />
@@ -151,6 +154,7 @@ const App: React.FC = () => {
                 <InputLeftAddon display={{ base: "none", md: "flex" }} backgroundColor='transparent'>≪</InputLeftAddon>
                 <Input
                   type='text'
+                  placeholder='약칭'
                   value={info.freecompany?.abbr ?? ""}
                   onChange={e => dispatch(setFreeCompanyAbbr(e.target.value))}
                 />
@@ -289,6 +293,7 @@ const App: React.FC = () => {
           </FormLabel>
           <Textarea
             size={componentSize}
+            placeholder='하고 싶은 말을 적어주세요!'
             value={info.description}
             onChange={e => dispatch(setDescription(e.target.value))}
           />
