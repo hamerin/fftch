@@ -507,8 +507,9 @@ const App: React.FC = () => {
               const link = document.createElement("a");
               link.href = base64;
               link.download = `${Date.now()}.png`;
+              document.body.appendChild(link);
               link.click();
-              link.remove();
+              document.body.removeChild(link);
             }}
           >
             다운로드
