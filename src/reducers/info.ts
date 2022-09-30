@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { min } from "../utils/helpers";
+import { max, min } from "../utils/helpers";
 import { AccessTime, BattleJob, Content, CraftingJob, GrandCompany, Job, Race, SheetInfo, Status } from "../utils/types";
 
 const initialState: SheetInfo = {
@@ -60,7 +60,7 @@ export const infoSlice = createSlice({
       state.favcontents = action.payload as Content[];
     },
     setLevel: (state, action: PayloadAction<{ job: Job, level: number }>) => {
-      if (action.payload.level !== 0) state.levels[action.payload.job] = min(90, action.payload.level);
+      if (action.payload.level !== 0) state.levels[action.payload.job] = min(90, max(action.payload.level, 0));
       if (action.payload.level === 0 && action.payload.job in state.levels) delete state.levels[action.payload.job];
     },
     setMainJob: (state, action: PayloadAction<string[]>) => {
