@@ -60,7 +60,7 @@ export const Sheet: React.FC<Props> = (props: Props) => {
 
   const levelMarkerStyle = new TextStyle({
     fontFamily: "Lora",
-    fill: [`#${intToRGB(config.markerColor)}`],
+    fill: [intToRGB(config.markerColor)],
     fontWeight: "700",
     fontStyle: "normal",
     fontSize: 20 * scale
