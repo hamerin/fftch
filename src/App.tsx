@@ -17,7 +17,9 @@ const App: React.FC = () => {
   const [backgroundTexture, setBackgroundTexture] = useState<Texture<Resource> | null>(null);
   const [uploadLoading, setUploadLoading] = useState<boolean>(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
-
+  const freecompanyNameRef = useRef<HTMLInputElement>(null);
+  const freecompanyAbbrRef = useRef<HTMLInputElement>(null);
+  
   const dispatch = useDispatch();
   const { info, config } = useSelector((state: RootState) => state);
 
@@ -96,8 +98,8 @@ const App: React.FC = () => {
               size={componentSize}
               type='text'
               placeholder='닉네임'
-              value={info.name}
-              onChange={e => dispatch(setName(e.target.value))}
+              defaultValue={info.name}
+              onBlur={e => dispatch(setName(e.target.value))}
             />
           </FormControl>
           <FormControl size={componentSize}>
@@ -106,8 +108,8 @@ const App: React.FC = () => {
               size={componentSize}
               type='text'
               placeholder='서버'
-              value={info.server}
-              onChange={e => dispatch(setServer(e.target.value))}
+              defaultValue={info.server}
+              onBlur={e => dispatch(setServer(e.target.value))}
             />
           </FormControl>
         </Flex>
@@ -135,7 +137,11 @@ const App: React.FC = () => {
                 size={componentSize}
                 isChecked={info.freecompany !== undefined}
                 onChange={e => {
-                  if (!e.target.checked) dispatch(resetFreeCompany());
+                  if (!e.target.checked) {
+                    dispatch(resetFreeCompany());
+                    if(freecompanyNameRef.current) freecompanyNameRef.current.value = "";
+                    if(freecompanyAbbrRef.current) freecompanyAbbrRef.current.value = "";
+                  }
                   else dispatch(setFreeCompanyAbbr(""));
                 }}
               >
@@ -144,19 +150,21 @@ const App: React.FC = () => {
             </FormLabel>
             <Flex gap={spacing}>
               <Input
+                ref={freecompanyNameRef}
                 size={componentSize}
                 type='text'
                 placeholder='이름'
-                value={info.freecompany?.name ?? ""}
-                onChange={e => dispatch(setFreeCompanyName(e.target.value))}
+                defaultValue={info.freecompany?.name ?? ""}
+                onBlur={e => dispatch(setFreeCompanyName(e.target.value))}
               />
               <InputGroup size={componentSize}>
                 <InputLeftAddon display={{ base: "none", md: "flex" }} backgroundColor='transparent'>≪</InputLeftAddon>
                 <Input
+                  ref={freecompanyAbbrRef}
                   type='text'
                   placeholder='약칭'
-                  value={info.freecompany?.abbr ?? ""}
-                  onChange={e => dispatch(setFreeCompanyAbbr(e.target.value))}
+                  defaultValue={info.freecompany?.abbr ?? ""}
+                  onBlur={e => dispatch(setFreeCompanyAbbr(e.target.value))}
                 />
                 <InputRightAddon display={{ base: "none", md: "flex" }} backgroundColor='transparent'>≫</InputRightAddon>
               </InputGroup>
@@ -294,8 +302,8 @@ const App: React.FC = () => {
           <Textarea
             size={componentSize}
             placeholder='하고 싶은 말을 적어주세요!'
-            value={info.description}
-            onChange={e => dispatch(setDescription(e.target.value))}
+            defaultValue={info.description}
+            onBlur={e => dispatch(setDescription(e.target.value))}
           />
         </FormControl>
 
