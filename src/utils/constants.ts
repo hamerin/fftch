@@ -26,13 +26,14 @@ import grandcompany1 from "../images/grandcompanies/1.png";
 import grandcompany2 from "../images/grandcompanies/2.png";
 import marker0 from "../images/markers/0.png";
 import marker1 from "../images/markers/1.png";
+import marker2 from "../images/markers/2.png";
 import status0 from "../images/statuses/0.png";
 import status1 from "../images/statuses/1.png";
 import status2 from "../images/statuses/2.png";
 import status3 from "../images/statuses/3.png";
 import status4 from "../images/statuses/4.png";
 import status5 from "../images/statuses/5.png";
-import { AccessTime, CasterJob, Content, CraftingJob, Frame, GatheringJob, Gradient, GrandCompany, HealerJob, Job, JobMarkers, MeleeJob, RangedJob, Status, TankJob } from "./types";
+import { AccessTime, BattleJob, CasterJob, Content, CraftingJob, Frame, GatheringJob, Gradient, GrandCompany, HealerJob, Job, JobMarkers, MeleeJob, RangedJob, Status, TankJob } from "./types";
 
 export const frameImageRecord: Record<Frame, string> = {
   "elegant": frame1,
@@ -84,9 +85,35 @@ export const gradientImageRecord: Record<Gradient, string> = {
   "gray": gradient1,
 };
 
-export const markerImageRecord: Record<keyof JobMarkers, string> = {
-  "main": marker0,
-  "specialist": marker1
+export const jobMarkerImageRecord: Record<BattleJob | CraftingJob, string> = {
+  "나이트": marker2,
+  "전사": marker2,
+  "암흑기사": marker2,
+  "건브레이커": marker2,
+  "백마도사": marker0,
+  "학자": marker0,
+  "점성술사": marker0,
+  "현자": marker0,
+  "몽크": marker2,
+  "용기사": marker2,
+  "닌자": marker2,
+  "사무라이": marker2,
+  "리퍼": marker2,
+  "음유시인": marker2,
+  "기공사": marker2,
+  "무도가": marker2,
+  "흑마도사": marker0,
+  "소환사": marker0,
+  "적마도사": marker0,
+  "청마도사": marker0,
+  "목수": marker2,
+  "대장장이": marker2,
+  "갑주제작사": marker2,
+  "보석공예가": marker1,
+  "가죽공예가": marker1,
+  "재봉사": marker1,
+  "연금술사": marker1,
+  "요리사": marker1,
 };
 
 export const levelPositionX: Record<Job, number> = {
@@ -229,4 +256,3 @@ export const allRaceStrings: string[] = [
   "로스갈 | 맴도는 별 | 남",
   "로스갈 | 떠도는 별 | 남",
 ];
-

@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { min } from "../utils/helpers";
 import { AccessTime, BattleJob, Content, CraftingJob, GrandCompany, Job, Race, SheetInfo, Status } from "../utils/types";
 
 const initialState: SheetInfo = {
@@ -46,10 +47,10 @@ export const infoSlice = createSlice({
       state.status = action.payload === "" ? undefined : action.payload as Status;
     },
     setRace: (state, action: PayloadAction<string>) => {
-      if(action.payload === "") state.race = undefined;
+      if (action.payload === "") state.race = undefined;
       else {
         const [race, subrace, gender] = action.payload.split(" | ");
-        state.race = {race, subrace, gender} as Race;     
+        state.race = { race, subrace, gender } as Race;
       }
     },
     setAccessTimes: (state, action: PayloadAction<string[]>) => {
@@ -59,13 +60,14 @@ export const infoSlice = createSlice({
       state.favcontents = action.payload as Content[];
     },
     setLevel: (state, action: PayloadAction<{ job: Job, level: number }>) => {
-      if (action.payload.level !== 0) state.levels[action.payload.job] = action.payload.level;
+      if (action.payload.level !== 0) state.levels[action.payload.job] = min(90, action.payload.level);
       if (action.payload.level === 0 && action.payload.job in state.levels) delete state.levels[action.payload.job];
     },
     setMainJob: (state, action: PayloadAction<string[]>) => {
       state.markers.main = action.payload as BattleJob[];
     },
     setSpecialistJob: (state, action: PayloadAction<string[]>) => {
+      if (action.payload.length > 3) return;
       state.markers.specialist = action.payload as CraftingJob[];
     },
     setDescription: (state, action: PayloadAction<string>) => {

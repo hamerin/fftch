@@ -4,7 +4,7 @@ import React from "react";
 import useFontFaceObserver from "use-font-face-observer";
 import structure from "../images/structure.png";
 import watermark from "../images/watermark.png";
-import { accessTimeImageRecord, contentImageRecord, frameImageRecord, gradientImageRecord, grandCompanyImageRecord, levelPositionX, levelPositionY, markerImageRecord, statusImageRecord } from "../utils/constants";
+import { accessTimeImageRecord, contentImageRecord, frameImageRecord, gradientImageRecord, grandCompanyImageRecord, jobMarkerImageRecord, levelPositionX, levelPositionY, statusImageRecord } from "../utils/constants";
 import { intToRGB } from "../utils/helpers";
 import { Job, SheetConfig, SheetInfo } from "../utils/types";
 
@@ -219,23 +219,10 @@ export const Sheet: React.FC<Props> = (props: Props) => {
         })
       }
       {
-        config.markervariant === "icon" && info.markers.main.map((j, idx) => (
+        config.markervariant === "icon" && [...info.markers.main, ...info.markers.specialist].map((j, idx) => (
           <Sprite
-            key={`main${idx}`}
-            image={markerImageRecord["main"]}
-            tint={config.markerColor}
-            anchor={[0.5, 1]}
-            scale={scale}
-            x={levelPositionX[j] * scale} y={(levelPositionY[j]) * scale}
-            zIndex={3}
-          />
-        ))
-      }
-      {
-        config.markervariant === "icon" && info.markers.specialist.map((j, idx) => (
-          <Sprite
-            key={`specialist${idx}`}
-            image={markerImageRecord["specialist"]}
+            key={`marker${idx}`}
+            image={jobMarkerImageRecord[j]}
             tint={config.markerColor}
             anchor={[0.5, 1]}
             scale={scale}

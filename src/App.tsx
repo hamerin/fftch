@@ -309,9 +309,9 @@ const App: React.FC = () => {
 
         <Divider />
 
-        <Alert status='warning' fontSize={componentSize} px={{ base: 3, md: 4 }} py={{ base: 2, md: 3 }}>
+        <Alert status='info' fontSize={componentSize} px={{ base: 3, md: 4 }} py={{ base: 2, md: 3 }}>
           <AlertIcon boxSize={{ base: "1.3125rem", md: "1.5rem" }} />
-          주직업/전문장인 표시 방식을 {"'직업 아이콘 테두리'"}로 설정할 경우, 일부 직업에 대해 해당 요소가 다른 요소와 겹칠 수 있습니다.
+          주직업/전문장인 표시 방식을 {"'직업 아이콘 테두리'"}로 설정할 경우, 일부 직업에 대해 {"'주직업'"}, {"'전문장인'"}이라는 텍스트가 나타나지 않습니다.
         </Alert>
         <Alert status='info' fontSize={componentSize} px={{ base: 3, md: 4 }} py={{ base: 2, md: 3 }}>
           <AlertIcon boxSize={{ base: "1.3125rem", md: "1.5rem" }} />
