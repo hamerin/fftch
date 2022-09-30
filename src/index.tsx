@@ -1,16 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "./index.css";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { Provider } from "react-redux";
+import store, { persistor } from "./store";
+import { PersistGate } from "redux-persist/integration/react";
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
+ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ChakraProvider theme={extendTheme({
+          useSystemColorMode: true
+        })}>
+          <App />
+        </ChakraProvider>
+      </PersistGate>
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
