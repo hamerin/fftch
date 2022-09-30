@@ -151,7 +151,8 @@ export const Sheet: React.FC<Props> = (props: Props) => {
         <Text
           text={freecompanyText}
           style={textStyle}
-          x={422.5 * scale} y={(-4.5 + 258.4) * scale}
+          anchor={[0, 1]}
+          x={422.5 * scale} y={(-4.3 + 26.4 + 258.5) * scale}
           zIndex={3}
         />
       }
@@ -168,7 +169,8 @@ export const Sheet: React.FC<Props> = (props: Props) => {
         <Text
           text={raceText}
           style={textStyle}
-          x={387 * scale} y={(-4.5 + 303) * scale}
+          anchor={[0, 1]}
+          x={387 * scale} y={(-4.3 + 26.4 + 302.8) * scale}
           zIndex={3}
         />
       }
@@ -205,14 +207,13 @@ export const Sheet: React.FC<Props> = (props: Props) => {
               (info.markers.main as Job[]).includes(j)
               || (info.markers.specialist as Job[]).includes(j)
             );
-          const metrics = TextMetrics.measureText(l, levelStyle);
 
           return (<Text
             key={`level${j}`}
             text={l}
             style={h ? levelMarkerStyle : levelStyle}
-            pivot={[metrics.width / 2, 0]}
-            x={levelPositionX[j] * scale} y={(-3 + levelPositionY[j]) * scale}
+            anchor={[1 / 2, 1]}
+            x={(levelPositionX[j]) * scale} y={(-3 + 25 + levelPositionY[j]) * scale}
             zIndex={3}
           />);
         })
@@ -248,7 +249,8 @@ export const Sheet: React.FC<Props> = (props: Props) => {
         <Text
           text={info.description}
           style={textStyle}
-          x={118.12 * scale} y={(-4.5 + 907.19) * scale}
+          anchor={[0, 1]}
+          x={118.12 * scale} y={(-4.3 + 26.4 + 907.19) * scale}
           zIndex={3}
         />
       }
