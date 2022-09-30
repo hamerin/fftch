@@ -235,7 +235,7 @@ const App: React.FC = () => {
                 <Wrap key={`jobs${idx}`} spacing={spacing}>
                   {
                     jobs.map(j => (
-                      <InputGroup key={j} size={componentSize} w={{ base: 125, md: 175 }}>
+                      <InputGroup key={j} size={componentSize} w={{ base: 148, md: 175 }}>
                         <InputLeftAddon backgroundColor={jobColors[idx]}>{j}</InputLeftAddon>
                         <Input
                           type='number'
