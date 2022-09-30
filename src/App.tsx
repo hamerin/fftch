@@ -542,7 +542,7 @@ const App: React.FC = () => {
 
         <Box pt={{ base: 9, md: 10 }} fontSize={{ base: "xs", md: "sm" }} color='gray.500'>
           기재되어있는 회사 명 · 제품명 · 시스템 이름은 해당 소유자의 상표 또는 등록 상표입니다.<br />
-          ⓒ 2010 - 2022 SQUARE ENIX CO., LTD All Rights Reserved. Korea Published by Actoz Soft.<br />
+          ⓒ 2010-2022 SQUARE ENIX CO., LTD. All Rights Reserved. Published in Korea by Actoz Soft CO., LTD.<br />
           디자인{" "}<Link href='https://twitter.com/Archiving_Snow' color={linkColor}>@Archiving_Snow</Link>
           {"  /  "}개발{" "}<Link href='https://twitter.com/_niremah' color={linkColor}>@_niremah</Link>
         </Box>
