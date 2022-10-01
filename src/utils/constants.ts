@@ -88,8 +88,8 @@ export const gradientImageRecord: Record<Gradient, string> = {
 export const jobMarkerImageRecord: Record<BattleJob | CraftingJob, string> = {
   "나이트": marker2,
   "전사": marker2,
-  "암흑기사": marker2,
-  "건브레이커": marker2,
+  "암흑기사": marker0,
+  "건브레이커": marker0,
   "백마도사": marker0,
   "학자": marker0,
   "점성술사": marker0,
