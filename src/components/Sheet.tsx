@@ -71,6 +71,9 @@ export const Sheet: React.FC<Props> = (props: Props) => {
   const freecompanyText = info.freecompany ? `${info.freecompany.name} ≪${info.freecompany.abbr}≫` : undefined;
   const raceText = info.race ? `${info.race.race}  l  ${info.race.subrace} (${info.race.gender})` : undefined;
 
+  const descriptionHeight = info.description !== "" ? TextMetrics.measureText(info.description, textStyle).height : 0;
+  console.log(descriptionHeight);
+
   return (
     <Stage
       hidden={hidden}
@@ -237,7 +240,7 @@ export const Sheet: React.FC<Props> = (props: Props) => {
           text={info.description}
           style={textStyle}
           anchor={[0, 1]}
-          x={118.12 * scale} y={(-4.3 + 26.4 + 907.19) * scale}
+          x={118.12 * scale} y={(-4.3 + 26.4 + 907.19 - 26 + descriptionHeight) * scale}
           zIndex={3}
         />
       }
